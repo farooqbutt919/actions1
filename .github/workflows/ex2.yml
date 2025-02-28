@@ -1,0 +1,22 @@
+name: My Second workflow
+
+on: push
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v4
+
+            - name: install cowsay program
+              run: sudo apt-get install cowsay -y
+              
+            - name: execute cowsay
+              run: cowsay -f dragon "Run for cover" >> dragon.txt
+
+            - name: list files
+              run: ls
+
+            - name: cat file
+              run: cat dragon.txt
